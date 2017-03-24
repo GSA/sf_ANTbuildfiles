@@ -13,12 +13,13 @@ Salesforce deployments to quickly deploy metadata to your Salesforce org.
 Getting Started
 ---------------
 
-###System Requirements
+*System Requirements
 1. **Apache Ant** - See [Installing Apache Ant](http://ant.apache.org/manual/install.html)
    for details.
-1. **Force.com Migration Tool** - See
+2. **Force.com Migration Tool** - See
    [Installing the Force.com Migration Tool](http://www.salesforce.com/us/developer/docs/daas/Content/forcemigrationtool_install.htm)
-   for details. By the end, you should have ``ant-salesforce.jar`` included in
+   for details. 
+3. After completing installations, you should have ``ant-salesforce.jar`` included in
    your Ant libraries.
 
 ###Contents
