@@ -5,10 +5,7 @@ GSA Release Managment sample Salesforce.com deployment structure utilizing
 [Apache Ant](http://ant.apache.org/) and the
 [Force.com Migration Tool](https://developer.salesforce.com/page/Force.com_Migration_Tool).
 
-This structure includes a build file with targets to easily interact
-with the Migration Tool targets.  Key functions are ``DeployAll``, ``retreveUnpackaged``,
-``retrieveUnpackagedstatic``,  ``deployCodeVerify``, ``deployCode``. This structure can be used as a base for your
-Salesforce deployments to quickly deploy metadata to your Salesforce org.
+This structure includes sample ``src`` folder with ``package.xml`` and ``sample components``, a ``build.xml`` file with targets to easily interact with the Migration Tool targets and ``build.properites`` file that includes Salesforce org inforamtion. This structure can be used as a base for your Salesforce deployments to quickly deploy metadata to your Salesforce org.
 
 Getting Started
 ---------------
