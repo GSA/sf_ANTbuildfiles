@@ -30,19 +30,6 @@
 		<antcall target="deployCodeVerify" />
 	  <echo>Performing code Deployment to the target sandbox</echo>	
 		<antcall target="deployCode" />
-		
-      <sf:deploy 
-			username="${sf.username}"
-			password="${sf.password}"
- 			sessionId="${sf.sessionId}"
- 			serverurl="${sf.serverurl}"
- 			maxPoll="${sf.maxPoll}"
-			pollWaitMillis="${sf.pollWaitMillis}"			
-			deployRoot="${sf.deployRoot}" 
-			rollbackOnError="true">
-			
- 			
-      </sf:deploy>
     </target>	
 
 
