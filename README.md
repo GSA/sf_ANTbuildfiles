@@ -28,16 +28,16 @@ Getting Started
 * **``removecodepkg``** - Sample structure for deleting files from a Salesforce
   org. Includes an empty ``package.xml`` and a ``destructiveChanges.xml``
   that lists the files to be deleted.
-* **``unmanaged-pacakge-name``** - Sample files that make up an unmanaged
+* **``static``** - Sample list of components used for retrieving
+  Salesforce metadata.
+* **``src``** - Sample files that make up an unmanaged
   package. The package name is defined in the ``fullName`` element of the
   ``package.xml``.
-* **``unpackaged``** - Sample files that don't belong to a package.
 * **``build.properties``** - Ant properties file for individual
   configurations (e.g. usernames and passwords).
 * **``build.xml``** - Ant build file with shorthand targets to use the
   Force.com Migration Tool targets.
-* **``static``** - Sample list of components used for retrieving
-  Salesforce metadata.
+
 
 ###Configurables
 List of configurable build properties from ``build.properties``:
@@ -46,6 +46,8 @@ List of configurable build properties from ``build.properties``:
   retrieving from.
 * **``sf.password``** - Password + security token for the user you wish
   to login as for deploying/retrieving metadata.
+* **``sf.sessionId``** - Salesforce session Id for the user you wish 
+  to login as for deploying/retrieving metadata. Session Id can be retrieved by 
 * **``sf.serverurl``** - Login url for your Salesforce org type.  Prod/dev use
   <http://login.salesforce.com>, sandboxes use <http://test.salesforce.com>.
 * **``deploy.dir``** - The directory containing the metadata to be deployed to
