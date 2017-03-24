@@ -25,7 +25,7 @@ Getting Started
    your Ant libraries.
 
 ###Contents
-* **``undeploy``** - Sample structure for deleting files from a Salesforce
+* **``removecodepkg``** - Sample structure for deleting files from a Salesforce
   org. Includes an empty ``package.xml`` and a ``destructiveChanges.xml``
   that lists the files to be deleted.
 * **``unmanaged-pacakge-name``** - Sample files that make up an unmanaged
@@ -36,7 +36,7 @@ Getting Started
   configurations (e.g. usernames and passwords).
 * **``build.xml``** - Ant build file with shorthand targets to use the
   Force.com Migration Tool targets.
-* **``manifiest.xml``** - Sample list of components used for retrieving
+* **``static``** - Sample list of components used for retrieving
   Salesforce metadata.
 
 ###Configurables
