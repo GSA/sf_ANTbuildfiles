@@ -23,8 +23,8 @@ Getting Started
 * **``removecodepkg``** - Sample structure for deleting files from a Salesforce
   org. Includes an empty ``package.xml`` and a ``destructiveChanges.xml``
   that lists the files to be deleted.
-* **``static``** - Sample list of components used for retrieving
-  Salesforce metadata.
+* **``static``** - A static file is created and uploaded to the folder which contains metadata that will be retrieved for each deployment. In case of a package with only permissionsets the ‘retrieveunpackaged’target will just retrieve the <userpermission> as it is missing the supporting metadata while retrieve from the target org. Static package will ensure all the metadata components are included for a successful permissionset retrieve.
+
 * **``src``** - Sample files that make up an unmanaged
   package. The package name is defined in the ``fullName`` element of the
   ``package.xml``.
@@ -34,7 +34,7 @@ Getting Started
   Force.com Migration Tool targets.
 
 
-###Configurables
+#Configurables
 List of configurable build properties from ``build.properties``:
 
 * **``sf.username``** - Username for the org you will be deploying to /
