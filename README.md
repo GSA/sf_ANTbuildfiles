@@ -23,13 +23,10 @@ Getting Started
 * **``removecodepkg``** - Sample structure for deleting files from a Salesforce
   org. Includes an empty ``package.xml`` and a ``destructiveChanges.xml``
   that lists the files to be deleted.
-* **``static``** - A static file is created and uploaded to the folder which contains metadata that will be retrieved for each deployment. In case of a package with only permissionsets the ‘retrieveunpackaged’target will just retrieve the <userpermission> as it is missing the supporting metadata while retrieve from the target org. Static package will ensure all the metadata components are included for a successful permissionset retrieve.
-
-* **``src``** - Sample files that make up an unmanaged
-  package. The package name is defined in the ``fullName`` element of the
-  ``package.xml``.
+* **``static``** - A static file is created and uploaded to the folder which contains metadata that will be retrieved for each deployment. In case of a package with only permissionsets the ‘retrieveunpackaged’target will just retrieve the ``<userpermission>`` as it is missing the supporting metadata while retrieving from the target org. Static package will ensure all the metadata components are included for a successful permissionset retrieve.
+* **``src``** - Sample struture for deploying files to Salesforce Org. Inludes ``pckage.xml`` and components that are mentioned in the ``package.xml``
 * **``build.properties``** - Ant properties file for individual
-  configurations (e.g. usernames and passwords).
+  configurations (e.g. usernames and passwords/sessionId).
 * **``build.xml``** - Ant build file with shorthand targets to use the
   Force.com Migration Tool targets.
 
@@ -42,41 +39,17 @@ List of configurable build properties from ``build.properties``:
 * **``sf.password``** - Password + security token for the user you wish
   to login as for deploying/retrieving metadata.
 * **``sf.sessionId``** - Salesforce session Id for the user you wish 
-  to login as for deploying/retrieving metadata. Session Id can be retrieved by 
+  to login as for deploying/retrieving metadata. Session Id can be retrieved by using this command in the Devconsole : ``System.debug('The Session ID is ' + UserInfo.getSessionId());``
 * **``sf.serverurl``** - Login url for your Salesforce org type.  Prod/dev use
   <http://login.salesforce.com>, sandboxes use <http://test.salesforce.com>.
-* **``deploy.dir``** - The directory containing the metadata to be deployed to
+* **``sf.deployRoot``** - The directory containing the metadata to be deployed to
   your Salesforce org.  This folder includes a ``package.xml`` file that lists
   the metadata to be deployed.
-* **``undeploy.dir``** - The directory containing the ``destructiveChanges.xml``
-  file that lists the contents to be removed from your Salesforce org.
-  Also contains an empty ``package.xml``.
-* **``retrieve.dir``** - The directory to store metadata retrieved from your
-  Salesforce org based on the contents of the ``manifiest.xml`` file.
-* **``sf.packageName``** - Comma-separated list of package names to be retrieved
-* **``sf.zipFile``** - Path of a zip file to be retrieved
-* **``sf.metadataType``** = Metadata type name for bulk retrieval or listings
 
 Usage
 ---------------
-Run **``ant [target]``** from the ``deployment`` directory to utilize
-the targets of the migration tool.
+Run **``ant [target]``** from the ``deployment`` directory.
 
-    Usage: ant [target]
-
-    Available targets:
-      deploy           Deploy contents of deploy.dir
-      deployRunAll     Deploy contents of deploy.dir and run all tests
-      deployZip        Deploy contents of sf.zipFile
-      describe         Describe all metatdata types
-      help, usage      Displays these usage guidelines
-      list             List all information of items of metadata type
-                       sf.metadataType
-      retrieve         Retrieve contents of manifest.file
-      retrieveBulk     Retrieve all instances of a given sf.metadataType
-      retrievePackage  Retrieve contents of sf.packageName
-      test             Test deploy contents of deploy.dir
-      undeploy         Delete contents of destructiveChanges.xml
 
 ### Targets
 Shorthand targets included in the build file.
@@ -85,17 +58,17 @@ Shorthand targets included in the build file.
 Deploy unpacked metadata from specified ``deploy.dir`` directory. Optionally
 specify which unit tests to run from this target.
 
-#### deployRunAll
+#### retrieveUnpackaged
 Deploy unpacked metadata from specified ``deploy.dir`` directory and run all
 tests.
 
-#### deployZip
+#### retrieveUnpackagedstatic
 Deploy a zip of metadata files specified in ``sf.zipFile`` to the org.
 
-#### describe
+#### deployCodeVerify
 Retrieve the information on all supported metadata types for your current org.
 
-#### list
+#### deployCode
 Retrieve the information of all items of a particular metadata type specified
 by ``sf.metadataType``.
 
