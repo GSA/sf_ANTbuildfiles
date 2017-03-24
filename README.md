@@ -5,17 +5,12 @@ GSA Release Managment sample Salesforce.com deployment structure utilizing
 [Apache Ant](http://ant.apache.org/) and the
 [Force.com Migration Tool](https://developer.salesforce.com/page/Force.com_Migration_Tool).
 
-This structure includes 
-1.	``src`` folder that includes ``package.xml`` and ``sample components``
-2.	 ``build.xml`` file with targets to easily interact with the Migration Tool targets 
-3.	``build.properites`` file that includes Salesforce org information. 
-
 This structure can be used as a base for your Salesforce deployments to quickly deploy metadata to your Salesforce org.
 
 Getting Started
 ---------------
 
-*System Requirements
+#System Requirements
 1. **Apache Ant** - See [Installing Apache Ant](http://ant.apache.org/manual/install.html)
    for details.
 2. **Force.com Migration Tool** - See
@@ -24,7 +19,7 @@ Getting Started
 3. After completing installations, you should have ``ant-salesforce.jar`` included in
    your Ant libraries.
 
-###Contents
+#Contents
 * **``removecodepkg``** - Sample structure for deleting files from a Salesforce
   org. Includes an empty ``package.xml`` and a ``destructiveChanges.xml``
   that lists the files to be deleted.
