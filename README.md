@@ -62,25 +62,21 @@ This is a global target build to call out multiple short hand targets within the
 
 Example:
 
-   ```<target name="deploy">
-   
-	  <echo>Retrieving backup using the package.xml in "src"</echo>
-        <antcall target="retrieveUnpackaged" />
+```<target name="deploy"><echo>Retrieving backup using the package.xml in "src"</echo>
+                  <antcall target="retrieveUnpackaged" />
 	  <echo>Retrieving backup using the static/package.xml</echo>
-        <antcall target="retrieveUnpackagedStatic" />
+                  <antcall target="retrieveUnpackagedStatic" />
 	  <echo>Performing code verification to the target sandbox</echo>
 		  <antcall target="deployCodeVerify" />
 	  <echo>Performing code Deployment to the target sandbox</echo>	
-		  <antcall target="deployCode" />
-    </target>```
-
+		  <antcall target="deployCode" /></target>```
 
 
 #### retrieveUnpackaged
 retrieve and unpackaged set of metadata from your org.
 
 #### retrieveUnpackagedstatic
-Retrieve an unpackaged set of metadata from your org. The file ``static/package.xml`` lists what is to be retrieved
+Retrieve an unpackaged set of metadata from your org. The file ``static/package.xml`` lists what is to be retrieved.
 
 #### deployCodeVerify
 Validate the contents of the ``/src`` directory, running the tests for specified classes.
@@ -90,6 +86,3 @@ Deploy the contents of the ``/src`` directory, running the tests for specified c
 
 #### undeploy
 Remove/Undeploy metadata specified in a ``destructiveChanges.xml`` file.
-
-
-
