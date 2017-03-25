@@ -62,7 +62,9 @@ This is a global target build to call out multiple short hand targets within the
 
 Example:
 
-```<target name="deploy">
+```JAVA
+
+<target name="deploy">
           <echo>Retrieving backup using the package.xml in "src"</echo>
                   <antcall target="retrieveUnpackaged" />
 	  <echo>Retrieving backup using the static/package.xml</echo>
@@ -70,7 +72,9 @@ Example:
 	  <echo>Performing code verification to the target sandbox</echo>
 		  <antcall target="deployCodeVerify" />
 	  <echo>Performing code Deployment to the target sandbox</echo>	
-		  <antcall target="deployCode" /></target>
+		  <antcall target="deployCode" />
+		  
+</target>
 ```
 
 
