@@ -61,7 +61,7 @@ This is a global target build to call out multiple short hand targets within the
 ``deployCode``
 
 Example:
-
+```
    <target name="deploy">
    
 	  <echo>Retrieving backup using the package.xml in "src"</echo>
@@ -73,6 +73,7 @@ Example:
 	  <echo>Performing code Deployment to the target sandbox</echo>	
 		  <antcall target="deployCode" />
     </target>	
+    ```
 
 
 
