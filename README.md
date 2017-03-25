@@ -43,52 +43,50 @@ List of configurable build properties from ``build.properties``:
 * **``sf.serverurl``** - Login url for your Salesforce org type.  Prod/dev use
   <http://login.salesforce.com>, sandboxes use <http://test.salesforce.com>.
 * **``sf.deployRoot``** - The directory containing the metadata to be deployed to
-  your Salesforce org.  This folder includes a ``package.xml`` file that lists
-  the metadata to be deployed.
+  your Salesforce org.  
 
 Usage
 ---------------
-Run **``ant [target]``** from the ``deployment`` directory.
+Use CL or Git Bash and Run **``ant [target]``** from the ``deployment`` directory.
 
 
 ### Targets
 Shorthand targets included in the build file.
 
 #### deploy
-Deploy unpacked metadata from specified ``deploy.dir`` directory. Optionally
-specify which unit tests to run from this target.
+This is a global target build to call out multiple short hand targets within the build.xml file. This target calls following targets
+``retrieveunpackaged``
+``retrieveunpackagedstatic``
+``deployCodeVerify``
+``deployCode``
+
+Example:
+
+   <target name="deploy">
+   
+	  <echo>Retrieving backup using the package.xml in "src"</echo>
+        <antcall target="retrieveUnpackaged" />
+	  <echo>Retrieving backup using the static/package.xml</echo>
+        <antcall target="retrieveUnpackagedStatic" />
+	  <echo>Performing code verification to the target sandbox</echo>
+		  <antcall target="deployCodeVerify" />
+	  <echo>Performing code Deployment to the target sandbox</echo>	
+		  <antcall target="deployCode" />
+    </target>	
+
+
 
 #### retrieveUnpackaged
-Deploy unpacked metadata from specified ``deploy.dir`` directory and run all
-tests.
+retrieve and unpackaged set of metadata from your org.
 
 #### retrieveUnpackagedstatic
-Deploy a zip of metadata files specified in ``sf.zipFile`` to the org.
+Retrieve an unpackaged set of metadata from your org. The file ``static/package.xml`` lists what is to be retrieved
 
 #### deployCodeVerify
-Retrieve the information on all supported metadata types for your current org.
+Validate the contents of the ``/src`` directory, running the tests for specified classes.
 
 #### deployCode
-Retrieve the information of all items of a particular metadata type specified
-by ``sf.metadataType``.
-
-#### retrieve
-Retrieve an unpackaged set of metadata from your org based on the contents of
-``manifest.xml``.  Retrieved metadata is stored in the relative ``retrieve.dir``
-directory.
-
-#### retrieveBulk
-Retrieve all the items of a particular metadata type defined by
-``sf.metadataType``. Retrieved metadata is stored in the relative
-``retrieve.dir`` directory.
-
-#### retrievePackage
-Retrieve metadata for all the packages specified under ``sf.packageName``.
-Retrieved metadata is stored in the relative ``retrieve.dir`` directory.
-
-#### test
-Test deploy the contents of ``deploy.dir``.  This uses the provided username
-and password and does a ``checkOnly`` deploy to your Salesforce org.
+Deploy the contents of the ``/src`` directory, running the tests for specified classes.
 
 #### undeploy
 Remove/Undeploy metadata specified in a ``destructiveChanges.xml`` file.
